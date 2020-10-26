@@ -1,15 +1,7 @@
 class PagesController < ApplicationController
 
-    def home
+    def index
+        @affiliates = Affiliate.all
     end
 
-    def body
-    end
-
-    def mind
-    end
-
-    def spirit
-    end 
-    
 end
