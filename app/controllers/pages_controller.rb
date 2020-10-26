@@ -1,15 +1,6 @@
 class PagesController < ApplicationController
 
-    def home
+    def index
     end
 
-    def body
-    end
-
-    def mind
-    end
-
-    def spirit
-    end 
-    
 end
