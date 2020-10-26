@@ -1,2 +1,11 @@
-<h1><%= @title  %> </h1>
-<p> <%= @content %> </p>
+<%# 
+<h1><%= @title  %> 
+<%# <p> <%= @content %> 
+
+<% @affiliates.each do |affiliate| %>
+    <div class="well">
+        <h3> <%= affiliate.title %> </h3>
+        <p> <%= affiliate.body %> </p>
+        <%= link_to "Read More", affiliate_path(affiliate), :class => 'btn btn-default' %>
+    </div>
+<% end %>

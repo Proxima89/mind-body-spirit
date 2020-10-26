@@ -1,10 +1,10 @@
-<h1> Add Affiliate </h1>
-<%= form_for :affiliate, url: affiliates_path do |f| %>
+<h1> Edit Affiliate </h1>
+<%= form_for :affiliate, url: affiliate_path(@affiliate), method: :patch do |f| %>
 <% if @affiliate.errors.any? %>
-<% @affiliate.errors.full_messages.each do |msg| %>
+    <% @affiliate.errors.full_messages.each do |msg| %>
     <div class="alert alert-danger"> <%= msg %> </div>
     <% end  %>
-    <% end %>
+<% end %>
 <p>
     <%= f.label :title %> <br>
     <%= f.text_field(:title, {:class => 'form-control'}) %>
@@ -18,5 +18,4 @@
 <p>
     <%= f.submit ({:class => 'btn btn-primary'}) %>
 </p>
-
 <% end %>

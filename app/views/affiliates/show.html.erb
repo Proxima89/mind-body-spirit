@@ -1,2 +1,10 @@
-<h2> <%= @affiliate.title %> </h2>
-<h2> <%= @affiliate.body %> </h2>
+<h3> <%= @affiliate.title %> </h3>
+<p> <%= @affiliate.body %> </p>
+<%= link_to "Edit", edit_affiliate_path(@affiliate), :class => 'btn btn-default' %>
+        <%# <%= link_to "Read More", affiliate_path(affiliate), :class => 'btn btn-default' %> 
+<%= link_to "Delete", affiliate_path(@affiliate),
+                    method: :delete,
+                    data: {confirm: 'Are you sure?'},
+                     :class => 'btn btn-danger' %>
+
+
