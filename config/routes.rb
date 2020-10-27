@@ -7,5 +7,7 @@ Rails.application.routes.draw do
   get 'mind', to: 'pages#mind'
   get 'spirit', to: 'pages#spirit'
   
-  resources :affiliates
+  resources :affiliates do
+    resources :comments
+  end
 end

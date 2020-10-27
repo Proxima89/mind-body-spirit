@@ -1,3 +1,4 @@
+<div class="container">
 <h3> <%= @affiliate.title  %> </h3>
 <p> <%= @affiliate.body %> </p>
 <%= link_to "Edit", edit_affiliate_path(@affiliate), :class => 'btn btn-default' %>
@@ -5,3 +6,10 @@
                     method: :delete,
                     data: {confirm: 'Are you sure?'},
                      :class => 'btn btn-danger' %>
+                     
+<%= link_to "Affiliates", affiliates_path, :class => 'btn btn-default' %>                   
+</div>
+<hr>
+
+<%= render 'comments/comments' %>
+<%= render 'comments/form' %>
