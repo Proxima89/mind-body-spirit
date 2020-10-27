@@ -1,13 +1,11 @@
 class AffiliatesController < ApplicationController
 
     def index
-        @title = 'Affiliate Program';
-        @content = 'This is affiliate program';
+        @affiliates = Affiliate.all 
     end
 
     def show
         @affiliate = Affiliate.find(params[:id])
-
     end
 
     def new
@@ -16,7 +14,6 @@ class AffiliatesController < ApplicationController
 
 
     def create
-        # render plain: params[:affiliate].inspect
         @affiliate = Affiliate.new(affiliate_params)
 
         if (@affiliate.save)
@@ -45,7 +42,6 @@ class AffiliatesController < ApplicationController
         @affiliate.destroy
 
         redirect_to affiliates_path
-
     end
 
     private 
