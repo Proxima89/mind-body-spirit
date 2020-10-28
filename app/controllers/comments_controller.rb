@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
         @affiliate = Affiliate.find(params[:affiliate_id])
         @comments = @affiliate.comments.find(params[:id])
         @comments.destroy
-        redirect_to affiliates_path(@affiliate)
+        redirect_to affiliate_path(@affiliate)
     end
 
     private def comment_params

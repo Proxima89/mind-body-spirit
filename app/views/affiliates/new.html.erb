@@ -1,3 +1,4 @@
+<div class="container pb-0">
 <h1> Add Affiliate </h1>
 <%= form_for :affiliate, url: affiliates_path do |f| %>
 <% if @affiliate.errors.any? %>
@@ -20,3 +21,12 @@
 </p>
 
 <% end %>
+
+<button onclick="goBack()">Go Back</button>
+</div>
+
+<script>
+const goBack = () => {
+  onclick = window.history.back();
+  }
+</script>

@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  root "pages#index"
+  Devise.mappings.keys
+  
+  devise_for :users
+  root to: "pages#index"
 
   get 'index' => 'affiliates#index'
   get 'body', to: 'pages#body'
@@ -9,5 +12,6 @@ Rails.application.routes.draw do
   
   resources :affiliates do
     resources :comments
+      # resources :users
   end
 end

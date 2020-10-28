@@ -1,11 +1,15 @@
 class AffiliatesController < ApplicationController
-
+    # before_action :set_affiliate, only: [:show, :edit, :update, :destroy]
+    # before_action :authenticate_user!, except: [:show, :index]
     def index
+        @user = current_user
         @affiliates = Affiliate.all 
     end
 
     def show
         @affiliate = Affiliate.find(params[:id])
+        # @user = current_user
+
     end
 
     def new
@@ -15,7 +19,7 @@ class AffiliatesController < ApplicationController
 
     def create
         @affiliate = Affiliate.new(affiliate_params)
-
+        # @affiliate.user = current_user
         if (@affiliate.save)
             redirect_to @affiliate
         else
@@ -39,6 +43,7 @@ class AffiliatesController < ApplicationController
 
     def destroy
         @affiliate = Affiliate.find(params[:id])
+        # @user = @affiliate.user
         @affiliate.destroy
 
         redirect_to affiliates_path

@@ -1,4 +1,5 @@
 class Affiliate < ApplicationRecord
+    has_one :user
     has_many :comments
     validates :title, presence: true,
                     length: {minimum: 5}
