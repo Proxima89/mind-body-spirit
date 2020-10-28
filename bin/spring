@@ -2,6 +2,7 @@
 
 # This file loads Spring without using Bundler, in order to be fast.
 # It gets overwritten when you run the `spring binstub` command.
+ENV['DISABLE_SPRING'] = '1' if File.exist?(File.join(__dir__, '../.offspring'))
 
 unless defined?(Spring)
   require 'rubygems'
@@ -14,4 +15,5 @@ unless defined?(Spring)
     gem 'spring', spring.version
     require 'spring/binstub'
   end
+
 end

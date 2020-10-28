@@ -1,15 +1,41 @@
 <div class="container">
-<h3> <%= @affiliate.title  %> </h3>
-<p> <%= @affiliate.body %> </p>
-<%= link_to "Edit", edit_affiliate_path(@affiliate), :class => 'btn btn-default' %>
-<%= link_to "Delete", affiliate_path(@affiliate),
-                    method: :delete,
-                    data: {confirm: 'Are you sure?'},
-                     :class => 'btn btn-danger' %>
-                     
-<%= link_to "Affiliates", affiliates_path, :class => 'btn btn-default' %>                   
+    <div class="col">
+        <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+            <div class="col p-4 d-flex flex-column position-static">
+                <strong class="d-inline-block mb-2 text-primary">Affiliate</strong>                   
+                <h3> <%= @affiliate.title  %> </h3>
+                <div class="mb-1 text-muted">
+                 Nov 12
+                </div>
+                <p> <%= @affiliate.body %> </p> 
+            </div>                                
+            <div class="col-auto d-none d-lg-block">
+                <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+            </div>
+           
+        </div>
+    </div>    
+    <div class="text-center">    
+        <%= link_to "Edit", edit_affiliate_path(@affiliate), :class => 'btn btn-default' %>
+        <%= link_to "Delete", affiliate_path(@affiliate),method: :delete,
+        data: {confirm: 'Are you sure?'},
+        :class => 'btn btn-danger' %>
+    </div>
+    <div class="container mt-0 justify-content-center col-md-8">
+            <%= render 'comments/comments' %>          
+    </div>
+    <div class="container mt-0 col-md-6">
+        <%= render 'comments/form' %>
+    </div>
+    <div class="text-center">
+    <hr>
+        <%= link_to "See All Affiliates", affiliates_path, :class => 'btn btn-default' %>                   
+        <button onclick="goBack()">Go Back</button>
+    </div>
 </div>
-<hr>
 
-<%= render 'comments/comments' %>
-<%= render 'comments/form' %>
+<script>
+const goBack = () => {
+  onclick = window.history.back();
+  }
+</script>
