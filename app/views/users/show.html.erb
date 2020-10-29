@@ -1,0 +1,13 @@
+<div class="container">
+<%= link_to 'Edit Account', edit_user_registration_path %>
+<h1><%= @user.email %></h1>
+
+<p> <strong>Admin: </strong><%= @user.admin? %></p>
+
+<h2> Hello mate</h2>
+
+<% if current_user.id == @user.id %>
+    <%= link_to 'Edit My Profile', edit_user_path(current_user), class:'btn btn-primary' %>
+    <% end %>
+    
+</div>

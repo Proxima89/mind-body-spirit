@@ -1,7 +1,8 @@
 class PagesController < ApplicationController
     # before_action :authenticate_user!, only: [:home ]
-    skip_before_action :authenticate_user!, only: [ :index,:home, :body, :mind, :spirit, :affiliates_path, :affiliate_comments_path ]
-
+    # skip_before_action :authenticate_user!, only: [ :index, :home, :body, :mind, :spirit]
+    # before_action :authenticate_admin!, only: [:update, :create, :destroy, :edit, :new]
+    # before_action :authenticate_user!, only: [:update, :create, :destroy, :edit, :new]
     def index
         @affiliates = Affiliate.all
     end    

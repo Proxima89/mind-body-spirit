@@ -12,18 +12,18 @@
 
   <body style="margin: 0;">
   <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
-  <h5 class="my-0 mr-md-auto font-weight-normal">Body Mind Spirit</h5>
-  <nav class="my-2 my-md-0 mr-md-3">
-    <a class="p-2 text-dark float-left" ><%= link_to 'Home', root_path %></a>
-    <a class="p-2 text-dark float-left" ><%= link_to 'Create Affiliate', new_affiliate_path %></a>
-    <a class="p-2 text-dark"> <%= render 'layouts/alerts' %> </a>
-  </nav>
-  <%# <a class="btn btn-outline-primary" href=''>  </a> %>
-  
-  
+    <h5 class="my-0 mr-md-auto font-weight-normal">Body Mind Spirit</h5>
+    <nav class="my-2 my-md-0 mr-md-3">
+      <a class="p-2 text-dark float-left" ><%= link_to 'Home', root_path %></a>
+      <a class="p-2 text-dark float-left" ><%= link_to 'Create Affiliate', new_affiliate_path %></a>
+      <a class="p-2 text-dark"> <%= render 'layouts/alerts' %> </a>
+      <% if current_user && current_user.admin %>
+      <a class="p-2 text-dark"> <%= link_to 'Profile', user_path(current_user) %> </a>
+      <% end %>
+    </nav>
 </div>
 
     <%= yield %>
-  <%= render 'shared/footer' %>
   </body>
+  <%= render 'shared/footer' %>
 </html>

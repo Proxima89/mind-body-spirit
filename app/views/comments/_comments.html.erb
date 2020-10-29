@@ -1,9 +1,12 @@
 <h3> Comments</h3>
 <% @affiliate.comments.each do |comment| %>
     <div class="well">
+    <% if current_user && current_user.admin %>
+        <p>
         <%= link_to '[X]', [comment.affiliate, comment],
                     method: :delete,
                     data: {confirm: 'Are you sure?'} %> </p>
+        <% end %>
         <p> <strong><%= comment.username %> </strong>: <%= comment.body %> </p>
     </div>
 <% end %>
