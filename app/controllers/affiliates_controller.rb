@@ -1,6 +1,10 @@
 class AffiliatesController < ApplicationController
-    # before_action :set_affiliate, only: [:show, :edit, :update, :destroy]
-    # before_action :authenticate_user!, except: [:show, :index]
+    before_action :authenticate_admin!, only: [:update, :create, :destroy, :edit, :new]
+    # before_action :authenticate_user!, only: [:update, :create, :destroy, :edit, :new]
+    # before_action :set_affiliate, except: [:create, :update, :edit]
+    # skip_before_action :authenticate_user!, only: [:show]
+    # before_action :authenticate_user!, only: []
+    # before_action :authenticate_admin!, only: [:index, :home, :body, :mind, :spirit]
     def index
         @user = current_user
         @affiliates = Affiliate.all 
@@ -8,7 +12,8 @@ class AffiliatesController < ApplicationController
 
     def show
         @affiliate = Affiliate.find(params[:id])
-        # @user = current_user
+        # @user = User.find(params[:id])
+        # @comment = Comment.all
 
     end
 
