@@ -22,4 +22,4 @@ class ApplicationController < ActionController::Base
 end
 # def is_authorised
 #     redirect_to root_path, alert: "You don't have permission..." unless current_user.id == @jobs_dev.user_id
-#   end
+# end
