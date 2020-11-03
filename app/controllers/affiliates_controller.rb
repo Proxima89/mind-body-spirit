@@ -8,12 +8,17 @@ class AffiliatesController < ApplicationController
     def index
         @user = current_user
         @affiliates = Affiliate.all 
+        if params[:affiliate]
+            @affiliate = Affiliate.filter(params[:affiliate][:category])
+          else
+            @affiliate = Affiliate.all
+          end
     end
 
     def show
         @affiliate = Affiliate.find(params[:id])
         # @user = User.find(params[:id])
-        # @comment = Comment.all
+        @comment = Comment.all
     end
 
     def new
@@ -55,6 +60,6 @@ class AffiliatesController < ApplicationController
 
     private 
     def affiliate_params
-        params.require(:affiliate).permit(:title, :body)
+        params.require(:affiliate).permit(:title, :body, :category_id)
     end
 end
