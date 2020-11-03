@@ -21,7 +21,11 @@
              <div class="container">
                 <div class="select-box">
                     <div class="selected text-center">
-                     <a class="p-2 text-dark" ><%= link_to 'Mind', mind_path %></a>                  
+                     <a class="p-2 text-dark" ><%= link_to 'Mind', mind_path %></a>   
+                     <% form_tag mind_path, method: "get" do %>
+                    <%# <%= select "publication", "category", options_for_select(options_for_categories, selected: params[:publication][:category]), {prompt: 'Select Category'} %> 
+                    <%= submit_tag "Filter", name: nil %>
+                    <% end %>               
                     </div>
                 </div>  
             </div>
