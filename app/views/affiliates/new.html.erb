@@ -1,27 +1,43 @@
-<div class="container pb-0">
-<% if current_user && current_user.admin %>
-<h1> Add Affiliate </h1>
-    <%= form_for :affiliate, url: affiliates_path do |f| %>
-    <% if @affiliate.errors.any? %>
-    <% @affiliate.errors.full_messages.each do |msg| %>
-        <div class="alert alert-danger"> <%= msg %> </div>
-            <% end  %>
-        <% end %>    
-    <p>
-        <%= f.label :title %> <br>
-        <%= f.text_field(:title, {:class => 'form-control'}) %>
-    </p>
-    <p>
-        <%= f.label :body %> <br>
-        <%= f.text_area(:body, {:class => 'form-control'}) %>
-    </p>
-    <%= f.select :category_id, Category.all.map {|c| [c.category, c.id]} %>
-    <p>
-        <%= f.submit ({:class => 'btn btn-primary'}) %>
-    </p>
-    <% end %>
-<% end %>
-<button onclick="goBack()">Go Back</button>
+<div class="flex-row d-flex justify-content-center">
+    <div class="col-md-6">
+        <div class="card mt-5">
+            <div class="card-body">
+                <div class="form-group">
+                    <% if current_user && current_user.admin %>
+                    <h1> Add Affiliate </h1>
+                    <%= form_for :affiliate, url: affiliates_path do |f| %>
+                        <% if @affiliate.errors.any? %>
+                            <% @affiliate.errors.full_messages.each do |msg| %>
+                                <div class="alert alert-danger"> <%= msg %> </div>
+                        <% end  %>
+                    <% end %>    
+                        <div class="form-group">
+                            <p>
+                                <%= f.label :title %> <br>
+                                <%= f.text_field(:title, {:class => 'form-control'}) %>
+                            </p> 
+                        </div>
+                        <div class="form-group">
+                            <p>
+                                <%= f.label :body %> <br>
+                                <%= f.text_area(:body, {:class => 'form-control'}) %>
+                            </p> 
+                        </div>
+                        <div class="form-group">
+                        <p> Select from category: </p>
+                            <%= f.select :category_id, Category.all.map {|c| [c.category, c.id]} %>
+                        </div>
+                </div>
+            </div>
+                    <div class="form-group text-center">
+                        <%= f.submit "Create Affiliate",({:class => 'btn btn-primary'}) %>
+                            <% end %>
+                        <% end %>
+                        <button onclick="goBack()" class="btn btn-secondary">Go Back</button>
+                    </div>
+    
+        </div>   
+    </div>
 </div>
 
 <script>

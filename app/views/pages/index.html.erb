@@ -1,3 +1,5 @@
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <div class="row ml-0">    
     <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1563053764-85dbf278c408?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80);">
         <div class="container2">
@@ -5,12 +7,29 @@
             <p class="text-center">Find the products your body needs</p>
         </div>    
         <div class="container">
-                <div class="select-box">
-                    <div class="selected text-center">
-                    <a class="p-2 text-dark" ><%= link_to 'Body', body_path %></a>                  
-                    </div>
-                </div>          
-           
+            <div class="select-box">
+            
+                        
+                      
+                           <div class="dropdown-toggle">
+                               <div class="dropdown-toggle" data-toggle="dropdown" >  
+                                    
+                                       
+                                        <%= link_to 'Body', body_path %>
+                                        <% @categories.each do |category| %>
+                                       <button class="btn btn-primary dropdown-item">
+                                        <a class="dropdown-item" href="#"> 
+                                                <%= link_to category.category, affiliates_path(:cate => category.id) %>
+                                        </a>   
+                                        
+                                            <% end%> 
+                                    </button> 
+                                </div>
+                            
+                            </div>
+            
+                                        
+            </div>                  
         </div>
     </div>
     <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1526367021122-ad6dd486f9b7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1049&q=80);">
@@ -22,10 +41,7 @@
                 <div class="select-box">
                     <div class="selected text-center">
                      <a class="p-2 text-dark" ><%= link_to 'Mind', mind_path %></a>   
-                     <% form_tag mind_path, method: "get" do %>
-                    <%# <%= select "publication", "category", options_for_select(options_for_categories, selected: params[:publication][:category]), {prompt: 'Select Category'} %> 
-                    <%= submit_tag "Filter", name: nil %>
-                    <% end %>               
+              
                     </div>
                 </div>  
             </div>
@@ -45,10 +61,6 @@
         </div>
     </div>
 </div>  
-
-
-
-
 <div class="justify-content-around ">
     <div class="container row col-12 lg-12">
     <% @affiliates.each do |affiliate| %>
@@ -56,9 +68,9 @@
             <div class="col">
                 <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                     <div class="col p-4 d-flex flex-column position-static">
-                    <strong class="d-inline-block mb-2 text-primary">Affiliate</strong>                   
+                    <strong class="d-inline-block mb-2 text-primary"> Categroy</strong>           
                         <h3 class="mb-0"><%= affiliate.title %></h3>
-                        <div class="mb-1 text-muted">Nov 12</div>
+                        <div class="mb-1 text-muted"></div>
                         <p class="card-text mb-auto"><%= affiliate.body %></p>
                         <%= link_to "Read More", affiliate_path(affiliate), :class => 'btn btn-default' %>                   
                         </div>
@@ -71,6 +83,3 @@
         <% end  %>
     </div>
 </div>
-<%# <div class="d-flex justify-content-around">
-
-</div> %>
