@@ -5,16 +5,17 @@
             <p class="text-center">Find the products your body needs</p>
         </div>   
         <div class="container" style="display: flex; justify-content: center;">
-            <div class="select-box">
-                <div class="selected text-center">
-                    
-                    <%= form_with(url: body_path(@affiliate), method: :get, local: true) do |form| %>
-                    <%= form.select :order, ["Health Supplements", "Vitamins", "Minerals"] %> 
-                    <%= form.submit "Go" %>
-                    <% end %>
+            <div class="select-box text-center">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Dropdown button
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
                 </div>
-        
-                
             </div>  
         </div>
     </div>
@@ -24,10 +25,18 @@
             <p class="text-center">Find the products your mind needs</p>
         </div>
         <div class="container"style="display: flex; justify-content: center;">
-            <%# <div class="select-box"> %>
-                
-            
-            <%# </div> %>
+            <div class="select-box text-center">                         
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Dropdown button
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </div>                                                       
+            </div>
         </div>  
     </div>
    
@@ -38,15 +47,17 @@
             <p class="text-center">Find the products your spirit needs</p>
         </div>
         <div class="container" style="display: flex; justify-content: center;">
-            <div class="select-box text-center">              
-                <div class="selected text-center">
-               
-                    <%= form_with(url: spirit_path(@affiliate), method: :get, local: true) do |form| %>
-                    <%= form.select :order, ["Concert Tickets", "Motivational Movies", "Positivism"] %> 
-                    <%= form.submit "Go" %>
-                    <% end %>
-                </div>                  
-                
+            <div class="select-box text-center">                             
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Dropdown button
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </div>                                                        
             </div>
         </div>
     </div>
@@ -74,16 +85,7 @@
         <% end  %>
     </div>
 </div>
-<div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Dropdown button
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                </div>
+              
 <div class="alert alert-success" role="alert">
   <h4 class="alert-heading">Well done!</h4>
   <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
@@ -92,5 +94,6 @@
 </div>
 <script>
 
-if(Popper) alert('It is loaded');
 </script>
+if(jQuery) alert('It is loaded');
+        
