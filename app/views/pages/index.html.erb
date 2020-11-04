@@ -1,35 +1,21 @@
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <div class="row ml-0">    
     <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1563053764-85dbf278c408?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80);">
         <div class="container2">
             <h1 class="text-center">Healthy<strong> Body </strong> </h1>
             <p class="text-center">Find the products your body needs</p>
-        </div>    
-        <div class="container">
+        </div>   
+        <div class="container" style="display: flex; justify-content: center;">
             <div class="select-box">
-            
-                        
-                      
-                           <div class="dropdown-toggle">
-                               <div class="dropdown-toggle" data-toggle="dropdown" >  
-                                    
-                                       
-                                        <%= link_to 'Body', body_path %>
-                                        <% @categories.each do |category| %>
-                                       <button class="btn btn-primary dropdown-item">
-                                        <a class="dropdown-item" href="#"> 
-                                                <%= link_to category.category, affiliates_path(:cate => category.id) %>
-                                        </a>   
-                                        
-                                            <% end%> 
-                                    </button> 
-                                </div>
-                            
-                            </div>
-            
-                                        
-            </div>                  
+                <div class="selected text-center">
+                    
+                    <%= form_with(url: body_path(@affiliate), method: :get, local: true) do |form| %>
+                    <%= form.select :order, ["Health Supplements", "Vitamins", "Minerals"] %> 
+                    <%= form.submit "Go" %>
+                    <% end %>
+                </div>
+        
+                
+            </div>  
         </div>
     </div>
     <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1526367021122-ad6dd486f9b7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1049&q=80);">
@@ -37,30 +23,35 @@
             <h1 class="text-center">Healthy<strong> Mind</strong> </h1>
             <p class="text-center">Find the products your mind needs</p>
         </div>
-             <div class="container">
-                <div class="select-box">
-                    <div class="selected text-center">
-                     <a class="p-2 text-dark" ><%= link_to 'Mind', mind_path %></a>   
-              
-                    </div>
-                </div>  
-            </div>
+        <div class="container"style="display: flex; justify-content: center;">
+            <%# <div class="select-box"> %>
+                
+            
+            <%# </div> %>
+        </div>  
     </div>
+   
 
     <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1490730141103-6cac27aaab94?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80);">
         <div class="container2">
             <h1 class="text-center">Healthy<strong> Spirit </strong> </h1>
             <p class="text-center">Find the products your spirit needs</p>
         </div>
-        <div class="container">
-            <div class="select-box">              
+        <div class="container" style="display: flex; justify-content: center;">
+            <div class="select-box text-center">              
                 <div class="selected text-center">
-                <a class="p-2 text-dark" ><%= link_to 'Spirit', spirit_path %></a>                   
-                </div>
+               
+                    <%= form_with(url: spirit_path(@affiliate), method: :get, local: true) do |form| %>
+                    <%= form.select :order, ["Concert Tickets", "Motivational Movies", "Positivism"] %> 
+                    <%= form.submit "Go" %>
+                    <% end %>
+                </div>                  
+                
             </div>
         </div>
     </div>
 </div>  
+
 <div class="justify-content-around ">
     <div class="container row col-12 lg-12">
     <% @affiliates.each do |affiliate| %>
@@ -83,3 +74,23 @@
         <% end  %>
     </div>
 </div>
+<div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Dropdown button
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </div>
+<div class="alert alert-success" role="alert">
+  <h4 class="alert-heading">Well done!</h4>
+  <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
+  <hr>
+  <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+</div>
+<script>
+
+if(Popper) alert('It is loaded');
+</script>

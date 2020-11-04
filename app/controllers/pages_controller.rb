@@ -14,10 +14,15 @@ class PagesController < ApplicationController
         end
 
         @user = current_user
+        
 
         # @affiliate = Affiliate.filter(params[:affiliate][:category])
       
     end    
+
+    def show
+        @categories = Category.all
+    end
 
     def body
         @affiliates = Affiliate.all
@@ -29,6 +34,7 @@ class PagesController < ApplicationController
 
     def mind
         @affiliates = Affiliate.all
+        
     end
 
 end
