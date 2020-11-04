@@ -38,6 +38,7 @@ class AffiliatesController < ApplicationController
 
     def edit 
         @affiliate = Affiliate.find(params[:id])
+        # @category.edit(category_params)
     end
 
     def update
