@@ -1,19 +1,17 @@
 <div class="row ml-0">    
     <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1563053764-85dbf278c408?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80);">
-        <div class="container2">
+        <div class="container">
             <h1 class="text-center">Healthy<strong> Body </strong> </h1>
             <p class="text-center">Find the products your body needs</p>
         </div>   
-        <div class="container" style="display: flex; justify-content: center;">
+        <div class="container rounded" style="display: flex; justify-content: center;">
             <div class="select-box text-center">
                 <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Dropdown button
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
+                    <button onclick="myFunction()" class="dropbtn">Choose Category</button>
+                    <div id="myDropdown" class="dropdown-content">
+                        <%= link_to 'Vitamins', body_path%>
+                        <%= link_to 'Cosmetic', body_path%>
+                        <%= link_to 'Diet Programs', body_path%>
                     </div>
                 </div>
             </div>  
@@ -24,18 +22,16 @@
             <h1 class="text-center">Healthy<strong> Mind</strong> </h1>
             <p class="text-center">Find the products your mind needs</p>
         </div>
-        <div class="container"style="display: flex; justify-content: center;">
-            <div class="select-box text-center">                         
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Dropdown button
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
+        <div class="container rounded"style="display: flex; justify-content: center;">
+            <div class="select-box text-center rounded">                         
+                <div class="dropdown ">
+                    <button onclick="myFunction2()" class="dropbtn">Choose Category</button>
+                    <div id="myDropdown2" class="dropdown-content">
+                        <%=link_to 'Coding Camp', mind_path%>
+                        <%=link_to 'Books', mind_path%>
+                        <%=link_to 'Games', mind_path%>
                     </div>
-                </div>                                                       
+                </div>                                                    
             </div>
         </div>  
     </div>
@@ -49,20 +45,19 @@
         <div class="container" style="display: flex; justify-content: center;">
             <div class="select-box text-center">                             
                 <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Dropdown button
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
+                    <button onclick="myFunction3()" class="dropbtn">Choose Category</button>
+                    <div id="myDropdown3" class="dropdown-content">
+                        <%=link_to 'Motivation', spirit_path%>
+                        <%=link_to 'Life Goals', spirit_path%>
+                        <%=link_to 'Find Your Path', spirit_path%>
                     </div>
-                </div>                                                        
+                </div>                                               
             </div>
         </div>
     </div>
 </div>  
-
+ <br>
+  <br>
 <div class="justify-content-around ">
     <div class="container row col-12 lg-12">
     <% @affiliates.each do |affiliate| %>
@@ -85,15 +80,75 @@
         <% end  %>
     </div>
 </div>
-              
+              <br>
 <div class="alert alert-success" role="alert">
   <h4 class="alert-heading">Well done!</h4>
   <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
   <hr>
   <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
 </div>
-<script>
+<%# <script> %>
 
-</script>
 if(jQuery) alert('It is loaded');
-        
+<%# </script> %>
+
+<script>
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+  }
+  // Close the dropdown menu if the user clicks outside of it
+  window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      var i;
+      for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
+        }
+      }
+    }
+  }
+</script>
+<script>
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+function myFunction2() {
+    document.getElementById("myDropdown2").classList.toggle("show");
+  }
+  // Close the dropdown menu if the user clicks outside of it
+  window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      var i;
+      for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
+        }
+      }
+    }
+  }
+</script>
+<script>
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+function myFunction3() {
+    document.getElementById("myDropdown3").classList.toggle("show");
+  }
+  // Close the dropdown menu if the user clicks outside of it
+  window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      var i;
+      for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
+        }
+      }
+    }
+  }
+</script>
