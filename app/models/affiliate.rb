@@ -5,5 +5,4 @@ class Affiliate < ApplicationRecord
     validates :title, presence: true,
                     length: {minimum: 5}
 
-                    CLASS_LIST = ["Boza", "Limonada", "Nada", "Oranjada"]
 end

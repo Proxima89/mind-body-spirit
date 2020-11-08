@@ -17,7 +17,6 @@ class AffiliatesController < ApplicationController
 
     def show
         @affiliate = Affiliate.find(params[:id])
-        # @user = User.find(params[:id])
         @comment = Comment.all
     end
 

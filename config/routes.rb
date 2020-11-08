@@ -6,10 +6,14 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   Devise.mappings.keys
   
-  devise_for :users
-  resources :users, only: [:index, :show, :edit, :update]
-  root to: "pages#index"
+  devise_for :users 
+  devise_scope :user do
+    get '/users/sign_out' => 'devise/sessions#destroy'
+  end
+  resources :users, only: [:index, :show, :edit, :update, :destroy]
 
+  root to: "pages#index"
+  
   get 'index' => 'affiliates#index'
   get 'body', to: 'pages#body'
   get 'mind', to: 'pages#mind'
