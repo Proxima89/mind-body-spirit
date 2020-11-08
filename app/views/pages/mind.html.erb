@@ -1,7 +1,19 @@
-<div class="banner2" style=" background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1526367021122-ad6dd486f9b7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1049&q=80); ">   
+<div class="banner2" style="height: 25vh; background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1526367021122-ad6dd486f9b7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1049&q=80); ">   
         <div class="container2">
-            <h1 class="text-center" style="color: white;">Healthy<strong> Spirit </strong> </h1>
+            <h1 class="text-center" style="color: white;"><strong> Books </strong> </h1>
             <p class="text-center" style="color: white;">Find the products your spirit needs</p>
+                <div class="container rounded"style="display: flex; justify-content: center;">
+                    <div class="select-box text-center rounded">                         
+                        <div class="dropdown ">
+                            <button onclick="myFunction()" class="dropbtn">Choose Category</button>
+                            <div id="myDropdown" class="dropdown-content">
+                                <%=link_to 'Coding Camp', mind_path%>
+                                <%=link_to 'Books', mind_path%>
+                                <%=link_to 'Games', mind_path%>
+                            </div>
+                        </div>                                                    
+                    </div>
+                </div>  
         </div> 
 </div>
 <div class="justify-content-around ">
@@ -27,9 +39,20 @@
         <%# <button onclick="goBack()">Go Back</button> %>
     </div>
  <script>
- $('ul.nav li.dropdown').hover(function() {
-  $(this).find('.dropdown-menu').stop(true, true).delay(2000).fadeIn(1000);
-}, function() {
-  $(this).find('.dropdown-menu').stop(true, true).delay(2000).fadeOut(1000);
-});
+ function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+  }
+  // Close the dropdown menu if the user clicks outside of it
+  window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      var i;
+      for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
+        }
+      }
+    }
+  }
 </script>
