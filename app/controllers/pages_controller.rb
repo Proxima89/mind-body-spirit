@@ -25,11 +25,12 @@ class PagesController < ApplicationController
     end
 
     def body
-        @affiliates = Affiliate.all
+        @affiliates = Affiliate.where(category_id: 2)
     end
 
     def spirit
-        @affiliates = Affiliate.all
+        @affiliates = Affiliate.where(category_id: 6.. 7)
+        
     end
 
     def mind
