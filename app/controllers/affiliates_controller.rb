@@ -6,6 +6,7 @@ class AffiliatesController < ApplicationController
     # before_action :authenticate_user!, only: []
     # before_action :authenticate_admin!, only: [:index, :home, :body, :mind, :spirit]
     def index
+       
         @user = current_user
         @affiliates = Affiliate.all 
         if params[:affiliate]
@@ -16,6 +17,7 @@ class AffiliatesController < ApplicationController
     end
 
     def show
+    
         @affiliate = Affiliate.find(params[:id])
         @comment = Comment.all
     end

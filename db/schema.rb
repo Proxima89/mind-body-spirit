@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_03_150642) do
+ActiveRecord::Schema.define(version: 2020_11_12_122528) do
 
   create_table "affiliates", force: :cascade do |t|
     t.string "title"
@@ -33,6 +33,14 @@ ActiveRecord::Schema.define(version: 2020_11_03_150642) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["affiliate_id"], name: "index_comments_on_affiliate_id"
+  end
+
+  create_table "parent_categories", force: :cascade do |t|
+    t.string "body"
+    t.string "mind"
+    t.string "spirit"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
