@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   
   resources :affiliates do
     resources :comments
-      # resources :users
+      resources :users
   end
+  resources :comments
 end

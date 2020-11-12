@@ -13,13 +13,16 @@ class CommentsController < ApplicationController
     end
     
     def show
+        
         @comment.user = current_user
+      
     end
 
     def destroy
         @affiliate = Affiliate.find(params[:affiliate_id])
         @comments = @affiliate.comments.find(params[:id])
-        @comments.destroy
+        # @comment = Comment.find(params[:id])
+        @comment.destroy
         redirect_to affiliate_path(@affiliate)
     end
 
